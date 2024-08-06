@@ -7,6 +7,7 @@ const Chat = require("../models/chat.model");
  * @param {Object} chat contains sender, reciever, and message body
  */
 const onMessagedRecieved = (socket, chatId, message) => {
+  console.log("message Recieved");
   Chat.findById(chatId).then(chat => {
     chat.messages = chat.messages.concat(message);
     const to = chat.members.filter(member => member !== message.from)[0];

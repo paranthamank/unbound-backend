@@ -361,6 +361,7 @@ router.route("/assessment/addAssessment").put((req, res) => {
 });
 
 router.post("/:id/uploadLecture", upload.array("document", 1), (req, res) => {
+  console.log(" inside /:id/uploadLecture");
   Course.findById(req.params.id)
     .then((course) => {
       course.lectures = course.lectures.concat([

@@ -48,12 +48,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "unbound-frontend", "dist", "unbound-app", "index.html"));
 });
 
-/* Express Server */
-
+//Express Server 
 const server = app.listen(PORT, () => {
   console.log(`server is running on port: ${PORT}`);
 });
 
-/* Socket.io Connection */
-
+//Socket.io Connection 
 require("./routes/chat").listen(server);
